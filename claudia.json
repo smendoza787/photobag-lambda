@@ -1,0 +1,11 @@
+{
+  "lambda": {
+    "role": "photobag-executor",
+    "name": "photobag",
+    "region": "us-west-2"
+  },
+  "api": {
+    "id": "tfmybvjjik",
+    "module": "index"
+  }
+}
