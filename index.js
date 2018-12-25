@@ -13,7 +13,7 @@ api.post('/albums', req => {
         Item: {
             albumId: uuid(),
             albumName: req.body.albumName,
-            photoList: req.body.photoList
+            photoKeys: req.body.photoKeys
         }
     };
 
@@ -50,10 +50,10 @@ api.put('albums/{albumId}', req => {
     const params = {
         TableName,
         Key: { albumId },
-        UpdateExpression: 'set albumName = :n, photoList = :p',
+        UpdateExpression: 'set albumName = :n, photoKeys = :p',
         ExpressionAttributeValues: {
             ':n': req.body.albumName,
-            ':p': req.body.photoList
+            ':p': req.body.photoKeys
         },
         ReturnValues: "ALL_NEW"
     };
