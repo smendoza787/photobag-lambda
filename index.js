@@ -62,4 +62,17 @@ api.put('albums/{albumId}', req => {
         .then(data => data.Attributes);
 });
 
+// Delete an album by id
+api.delete('albums/{albumId}', req => {
+    const albumId = req.pathParams.albumId;
+
+    const params = {
+        TableName,
+        Key: { albumId }
+    };
+
+    return dynamoDb.delete(params).promise()
+        .then(data => data);
+});
+
 module.exports = api;
