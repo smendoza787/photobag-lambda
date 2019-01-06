@@ -23,7 +23,12 @@ api.post('/albums', req => {
 
 // Get all albums
 api.get('/albums', req => {
-    return dynamoDb.scan({ TableName }).promise()
+    const params = {
+        TableName,
+        ProjectionExpression: 'albumId, albumName'
+    };
+
+    return dynamoDb.scan(params).promise()
         .then(res => res.Items);
 });
 
